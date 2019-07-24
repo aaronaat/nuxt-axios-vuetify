@@ -4,7 +4,7 @@
 
   <br/>
 
-  <form>
+  <form @submit.prevent="submit">
     <input placeholder="Search" v-model="search" autofocus />
   </form>
 
@@ -20,10 +20,21 @@ export default {
     return {
       search: ''
     }
-  } 
+  },
+  methods: {
+    submit(event) {
+      this.$router.push(`results/${this.search}`);
+    }
+  }
 }
 </script>
 
 <style>
+* {
+  text-align: center;
+}
 
+h1 {
+  padding: 20px;
+}
 </style>
